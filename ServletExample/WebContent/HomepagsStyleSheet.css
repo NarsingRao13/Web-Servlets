@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+#Homepage-begining {
+	width: 100%;
+	background-color: #eda566;
+	padding: 20px;
+	text-align: center;
+	font-size: x-large;
+	font-family: 'Open Sans';
+	font-weight: bolder;
+}
+
+#shop-now-button {
+	padding: 15px;
+	background-color: white;
+	border: none;
+	text-align: center;
+	font-size: medium;
+	font-family: 'Open Sans';
+	font-weight: bolder;
+}

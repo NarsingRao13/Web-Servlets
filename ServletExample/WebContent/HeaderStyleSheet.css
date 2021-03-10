@@ -1,0 +1,181 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin: 0px;
+	padding: 0px; //
+	background-color: #f7f7f7;
+}
+
+#headerpart {
+	background-color: #f7f7f7;
+}
+
+.headers {
+	margin-left: 30px;
+	margin-right: 30px;
+	background-color: #f7f7f7;
+	padding-bottom: 0px;
+}
+
+#header-first-part {
+	padding-bottom: 0px;
+}
+
+#header-second-part {
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+#header-title { //
+	border: 3px solid black;
+	float: left;
+	font-weight: bolder;
+	font-size: x-large;
+	background-color: #f7f7f7;
+	font-family: 'Open Sans';
+}
+
+.header-one-right { //
+	border: 3px solid black;
+	float: right;
+	padding: 10px;
+	font-size: small;
+	background-color: #f7f7f7;
+	font-family: 'Open Sans';
+	cursor: pointer;
+}
+
+.header-two-right {
+	float: right;
+	padding: 10px;
+	padding-right: 25px;
+	padding-left: 25px; //
+	background-color: #f7f7f7;
+	color: #9169a0;
+}
+
+.header-search {
+	padding: 20px;
+	width: 200px;
+}
+
+input[type=text] {
+	width: 30%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	background-image: url('searchicon.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+
+.header-vertical-line {
+	float: right;
+	border-left: 1px solid #9169a0;
+	height: 55px;
+	padding-top: 0px;
+	margin-bottom: 5px;
+}
+
+#header-third-part {
+	background-color: #9169a0; //
+	border: 5px solid black;
+	height: 70px;
+	font-size: 15px;
+	font-style: normal;
+}
+
+.header-last-left {
+	float: left;
+	padding-right: 20px;
+	color: white;
+	padding-top: 5px;
+}
+
+#header-third-part-inner {
+	margin-left: 30px;
+	margin-right: 30px;
+	padding: 20px;
+	padding-left: 0px;
+	font-family: 'Open Sans';
+	cursor: pointer;
+}
+
+.container {
+	clear: both;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+
+.myaccount-details {
+	float: left;
+	width: 33.2%;
+	background-color: #7e4a92;
+	border: 1px solid gray;
+}
+
+.myaccount-details-data {
+	padding: 20px;
+	padding-right: 0px;
+	padding-left: 30px;
+	color: white;
+	text-align: left;
+	font-family: 'Open Sans';
+	cursor: pointer;
+	border: 0.5px solid gray;
+	border-left: 0px;
+}
+
+toggled .{
+	
+}
+
+#account {
+	cursor: pointer; //
+	background-color: blue;
+}
+
+#account:HOVER {
+	background-color: #7e4a92;
+}
+
+.nav {
+	background-color: #f7f7f7;
+	border: groove;
+	width: 520px;
+	height: 240px;
+	font-family: 'Open Sans'; //
+	margin-top: 50px;
+	margin-left: 150px;
+	display: none;
+}
+
+.subnav-content {
+	float: left;
+	width: 250px;
+	height: 240px; //
+	border: 5px solid black; //
+	background: white;
+	font-size: small;
+}
+
+.subnav-content-data {
+	width: 100%;
+	padding: 8px; //
+	background: white;
+}
+
+#subnav {
+	
+}
+
+#register{
+	color: white;
+	text-decoration: none;
+}
