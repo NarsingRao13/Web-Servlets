@@ -56,21 +56,21 @@ public class UserDatabase {
 		return user;
 	}
 	
-	public static boolean loginValidate(String name, String pass)
-	{
+	public static boolean loginValidate(String name, String pass) {
 		boolean status = false;
 		try {
-		Connection con = UserDatabase.getConnection();
-		PreparedStatement ps = con.prepareStatement("select * from registration where userName=? and userPassword=?");
-		ps.setString(1, name);
-		ps.setString(2, pass);
+			Connection con = UserDatabase.getConnection();
+			PreparedStatement ps = con
+					.prepareStatement("select * from registration where userName=? and userPassword=?");
+			ps.setString(1, name);
+			ps.setString(2, pass);
 
-		ResultSet rs = ps.executeQuery();
-		status = rs.next();
+			ResultSet rs = ps.executeQuery();
+			status = rs.next();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		
+
 		return status;
 	}
 
