@@ -32,9 +32,11 @@ public class Register extends HttpServlet {
 
 		if (status > 0) {
 			out.print("<p>Record saved successfully!</p>");
+			response.sendRedirect("Login.html"); 
 			// request.getRequestDispatcher("index.html").include(request,
 			// response);
 		} else {
+			
 			out.println("Sorry! unable to save record");
 		}
 

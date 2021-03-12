@@ -11,7 +11,7 @@ public class UserDatabase {
 		try {
 			Class.forName("com.mysql.jdbc.Driver"); // load driver
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/narsing?characterEncoding=latin1", "root",
-					"n@rsingK#13");
+					"root");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -72,6 +72,32 @@ public class UserDatabase {
 		}
 
 		return status;
+	}
+	
+	public static int updatePassword(UserDetails user)
+	{
+		int stat = 0;
+		String query = "update registration set userPassword=? where userName = ?";
+		try {
+			Connection con = UserDatabase.getConnection();
+			/*PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, user.getUserName());
+			ps.setString(2, user.getUserPass());*/
+			
+			PreparedStatement ps = con
+					.prepareStatement(query);
+			ps.setString(1, user.getUserPass());
+			ps.setString(2, user.getUserName());
+			
+		
+			
+			stat = ps.executeUpdate();
+			System.out.println("\n"+stat);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return stat;
 	}
 
 }

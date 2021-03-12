@@ -5,10 +5,29 @@
 <title>Registration</title>
 </head>
 <body>
-	<form action="Hello" method="get">
-		Name:<input type="text" name="userName" /><br />
-		<br /> Password:<input type="password" name="userPass" /><br />
+	<form action="Hello" name="RegForm" onsubmit = "return validate()" method="get">
+		Name:<input type="text" name="userName" required="required" /><br />
+		<br /> Password:<input type="password" name="userPass" required="required" /><br />
 		<br /> <input type="submit" value="submit">
 	</form>
+	
+	<script type="text/javascript">
+		function validate() {
+			var name = document.forms.RegForm.userName.value;
+			var pass = document.forms.RegForm.userPass.value;
+			
+			if(name == null || name == "") {
+				alert("Username field cannot be empty");
+				name.focus();
+				return fasle;
+			}
+			
+			if(pass == null || pass == "") {
+				alert("Password field cannot be empty");
+				name.focus();
+				return fasle;
+			}
+		}
+	</script>
 </body>
 </html>

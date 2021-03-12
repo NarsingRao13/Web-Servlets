@@ -28,6 +28,10 @@ public class Login extends HttpServlet {
 			// RequestDispatcher rd = request.getRequestDispatcher("servlet2");
 			// rd.forward(request, response);
 			out.print("Welcome " + name);
+			/*out.print("<form action='servlet2'>");  
+		    out.print("<input type='submit' value='go'>");  
+		    out.print("</form>");  */
+		          
 		} else {
 			out.print("Sorry username or password error");
 			// RequestDispatcher rd =
