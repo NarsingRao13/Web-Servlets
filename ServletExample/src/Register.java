@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +27,14 @@ public class Register extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/htm");
 		PrintWriter out = response.getWriter();
+		
+		ServletContext context = getServletContext();
+		String dName = context.getInitParameter("DriverName");
+		String dLink = context.getInitParameter("DatabaseLink");
+		System.out.println("dName: "+dName);
+		System.out.println("dLink: "+dLink);
+		
+		
 		String name = request.getParameter("userName");
 		String password = request.getParameter("userPass");
 
@@ -31,13 +42,13 @@ public class Register extends HttpServlet {
 		int status = UserDatabase.save(newUser);
 
 		if (status > 0) {
-			out.print("<p>Record saved successfully!</p>");
-			response.sendRedirect("Login.html"); 
-			// request.getRequestDispatcher("index.html").include(request,
-			// response);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Login");
+			rd.forward(request, response);
+			//response.sendRedirect("https://www.youtube.com/watch?v=EiuKnHNFwRU"); 
 		} else {
 			
-			out.println("Sorry! unable to save record");
+			out.println("Registration failed");
 		}
 
 		// MysqlCon ob = new MysqlCon();

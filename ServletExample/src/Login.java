@@ -3,11 +3,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Login
@@ -21,22 +24,26 @@ public class Login extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/htm");
 		PrintWriter out = response.getWriter();
+		
+		ServletConfig config = getServletConfig();
+		String log = config.getInitParameter("logindata");
+		System.out.println("login data: "+log);
+		
+		
+		
 		String name = request.getParameter("userName");
 		String password = request.getParameter("userPass");
-
+		
 		if (UserDatabase.loginValidate(name, password)) {
-			// RequestDispatcher rd = request.getRequestDispatcher("servlet2");
-			// rd.forward(request, response);
 			out.print("Welcome " + name);
-			/*out.print("<form action='servlet2'>");  
-		    out.print("<input type='submit' value='go'>");  
-		    out.print("</form>");  */
+			
 		          
 		} else {
-			out.print("Sorry username or password error");
-			// RequestDispatcher rd =
-			// request.getRequestDispatcher("index.html");
-			// rd.include(request, response);
+			//request.getRequestDispatcher("login.html").include(request, response);
+			//RequestDispatcher rd = request.getRequestDispatcher("LoginFailed.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/LoginFailed.jsp");
+			rd.forward(request, response);
+			 
 		}
 
 	}
