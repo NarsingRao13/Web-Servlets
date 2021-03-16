@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)//doPost
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/htm");
@@ -55,7 +55,33 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/htm");
+		PrintWriter out = response.getWriter();
+		ServletConfig config = getServletConfig();
+		String log = config.getInitParameter("logindata");
+		System.out.println("login data: "+log);
+		
+		
+		
+		String name = request.getParameter("userName");
+		String password = request.getParameter("userPass");
+		
+		if (UserDatabase.loginValidate(name, password)) {
+			out.print("Welcome " + name);
+			HttpSession session = request.getSession();
+			session.setAttribute("UserName",name);
+			session.setAttribute("loginState","true");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+		          
+		} else {
+			//request.getRequestDispatcher("login.html").include(request, response);
+			//RequestDispatcher rd = request.getRequestDispatcher("LoginFailed.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/LoginFailed.jsp");
+			rd.forward(request, response);
+			 
+		}
 	}
 
 }
